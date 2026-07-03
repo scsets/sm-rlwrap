@@ -25,13 +25,19 @@ The build expects the usual tools and libraries to be available from
 
 * Quick start
 
-On the SmartOS host:
+On the SmartOS host, clone [[https://github.com/scsets/sm-rlwrap][scsets/sm-rlwrap]] and run the
+installer:
 
 #+begin_src sh
-cd /opt/tmp/sm-rlwrap
+cd /opt/tmp
+git clone https://github.com/scsets/sm-rlwrap.git
+cd sm-rlwrap
 ./install-rlwrap-smartos.ksh --dry-run
 ./install-rlwrap-smartos.ksh
 #+end_src
+
+The checkout can be in any writable directory.  ~/opt/tmp~ is only a convenient
+temporary location on the SmartOS host.
 
 The dry run prints the commands the installer would run.  The second command
 does the real build and install.
