@@ -1,0 +1,58 @@
+#+title: sm-rlwrap
+
+* What this is
+
+This repository contains a small SmartOS installer for building
+~rlwrap~ from the upstream release tarball and installing it under
+~/opt/tools~.
+
+The script is intended for a SmartOS global zone where the normal pkgsrc tools
+also live under ~/opt/tools~.
+
+* Requirements
+
+The build expects the usual tools and libraries to be available from
+~/opt/tools~:
+
+- ~ksh93~
+- ~curl~ or ~wget~
+- ~gzip~ and ~gtar~ or ~tar~
+- ~gmake~ or ~make~
+- ~gcc~ or another C compiler
+- GNU Readline headers and library
+- a terminal library such as ~ncurses~, ~curses~, ~tinfo~, ~tinfow~, or
+  ~termcap~
+
+* Quick start
+
+On the SmartOS host:
+
+#+begin_src sh
+cd /opt/tmp/sm-rlwrap
+./install-rlwrap-smartos.ksh --dry-run
+./install-rlwrap-smartos.ksh
+#+end_src
+
+The dry run prints the commands the installer would run.  The second command
+does the real build and install.
+
+* Faster build
+
+By default the script builds with one make job.  On a multi-core machine, use
+~--jobs~ to let ~make~ compile more than one file at a time:
+
+#+begin_src sh
+./install-rlwrap-smartos.ksh --jobs 4
+#+end_src
+
+If you are not sure, omit ~--jobs~ and use the default.
+
+* Verify
+
+After installation:
+
+#+begin_src sh
+/opt/tools/bin/rlwrap --version
+#+end_src
+
+The installer also runs this smoke test at the end of a successful install.
