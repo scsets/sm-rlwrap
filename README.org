@@ -6,6 +6,8 @@ This repository contains a small SmartOS installer for building
 ~rlwrap~ from the upstream release tarball and installing it under
 ~/opt/tools~.
 
+The upstream source is [[https://github.com/hanslub42/rlwrap][hanslub42/rlwrap]].
+
 The script is intended for a SmartOS global zone where the normal pkgsrc tools
 also live under ~/opt/tools~.
 
